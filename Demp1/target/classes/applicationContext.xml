@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+   <!--IOCContainer-->
+   <bean id="petrolObject" class="IOCContainer.PetrolEngine"/>
+   <bean id="desielObject" class="IOCContainer.DesielEngine"/>
+
+   <!--IOC Annotation-->
+
+   <context:component-scan base-package="IOCAnnotation"/>
+
+   <!--Bean Life Cycle-->
+
+   <context:component-scan base-package="BeanLifeCycle"/>
+
+   <!--setter injection-->
+
+   <bean id="petrol1" class="SetterInjection.PetrolEngine"></bean>
+   <bean id="desiel1" class="SetterInjection.DesielEngine"></bean>
+   <bean id="thar" class="SetterInjection.Thar">
+      <property name="petrolEngine" ref="petrol1"></property>
+   </bean>
+   <bean id="hondacity" class="SetterInjection.HondaCity">
+      <property name="desielEngine" ref="desiel1"></property>
+   </bean>
+
+   <!--setter injection1-->
+
+   <bean id="GloPro" class="SetterInjection1.GlossaryProduct"></bean>
+   <bean id="ElePro" class="SetterInjection1.ElectronicsProduct"></bean>
+
+   <bean id="GloShop" class="SetterInjection1.GlossaryShop"><property name="gp" ref="GloPro"></property></bean>
+   <bean id="EleShop" class="SetterInjection1.ElectronicsShop"><property name="ep" ref="ElePro"></property></bean>
+
+   <!--setter injection3-->
+
+   <context:component-scan base-package="SetterInjection3"></context:component-scan>
+</beans>
+
