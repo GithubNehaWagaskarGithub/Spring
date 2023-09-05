@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- IOC Container-->
+    <bean id="pe" class="IOCContainer.PetrolEngine"></bean>
+    <bean id="de" class="IOCContainer.DesielEngine"></bean>
+
+    <!-- IOC Annotation-->
+    <context:component-scan base-package="IOCAnnotation"></context:component-scan>
+
+    <!-- Setter Injection-->
+    <context:annotation-config></context:annotation-config>
+    <bean id="sd" class="SetterInjection.SoftwareDeveloper"></bean>
+    <bean id="st" class="SetterInjection.SoftwareTester"></bean>
+    <bean id="e" class="SetterInjection.Engineer"></bean>
+
+    <!--Constructor Injection-->
+    <context:component-scan base-package="ConstructorInjection"></context:component-scan><!-- For Component Annotation-->
+    <context:annotation-config></context:annotation-config><!-- For Autowired Annotation-->
+
+    <!-- Dependency Injection-->
+    <context:component-scan base-package="DependencyInjection"></context:component-scan>
+    <context:annotation-config></context:annotation-config>
+
+    <!-- Setter Injection1-->
+    <bean id="lb" class="SetterInjection1.Lithium"></bean>
+    <bean id="nb" class="SetterInjection1.Nickel"></bean>
+
+    <bean id="samsung" class="SetterInjection1.Samsung"><property name="battery" ref="lb"></property></bean>
+    <bean id="apple" class="SetterInjection1.Apple"><property name="battery" ref="nb"></property></bean>
+
+    <!-- Constructor Injection1-->
+    <bean id="gp" class="ConstructorInjection1.GlossaryProduct"></bean>
+    <bean id="ep" class="ConstructorInjection1.ElectronicsProduct"></bean>
+    <bean id="gs" class="ConstructorInjection1.GlossaryShop"><constructor-arg ref="gp"></constructor-arg></bean>
+    <bean id="es" class="ConstructorInjection1.ElectronicsShop"><constructor-arg ref="ep"></constructor-arg></bean>
+</beans>
+
