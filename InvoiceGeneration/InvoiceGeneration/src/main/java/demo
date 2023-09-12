@@ -1,0 +1,10 @@
+item =3 doller
+item 1 = price 10 tax 1 doller
+iten 2 = price 15 doller 15%
+item 3 = price 37 tax 15% or 5 doller
+
+10+1 =11
+15+0.15=15.15
+37+0.15=37.15 or
+
+String
