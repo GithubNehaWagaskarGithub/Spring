@@ -67,10 +67,10 @@ public class EmpController {
         return service.HikeEmpSalBy15(per);
     }
     //------------------------------------------------------------------------------
-    @DeleteMapping("/deleteDataById/{id}")
-    public void deleteDataById(@PathVariable(value = "id") int id)
+    @DeleteMapping("/deleteDataByName/{name}")
+    public void deleteDataByName(@PathVariable(value = "name") String name)
     {
-        service.deleteDataById(id);
+        service.deleteDataByName(name);
     }
     //--------------------------------------------------------------------------
 }

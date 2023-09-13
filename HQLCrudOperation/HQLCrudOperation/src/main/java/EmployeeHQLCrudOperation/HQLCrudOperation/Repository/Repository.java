@@ -31,18 +31,19 @@ public interface Repository extends JpaRepository<Employee,Integer> {
     @Query("select distinct e.eDec from Employee e")
     public List<String> displayDesig();
     //---------------------------------------------------------------------------------------
-
     @Query("select eName from Employee e where  e.eName like %:str% ")
     public List<String> displayNameStartsWithPerCharacter(@Param("str") String str);
     //---------------------------------------------------------------------------------------
-
     @Query("update Employee e set e.eSal=e.eSal+(e.eSal*:per)")
     @Modifying      //@Modifying And @Transactional these annotations is used for to update tha data inside Database
     @Transactional
     public int HikeEmpSalBy15(@Param("per") double per);
     //------------------------------------------------------------------------------------------
-
-    @Query("from Employee e where e.eId=:id")
-    public void deleteDataById(@Param("id") int id);
+    @Query("delete from Employee e where e.eName=:name")
+    @Modifying
+    @Transactional
+    public void deleteDataByName(@Param("name") String name);
     //--------------------------------------------------------------
+
+
 }

@@ -5,7 +5,7 @@ import EmployeeHQLCrudOperation.HQLCrudOperation.Repository.Repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
-import java.util.Set;
+
 
 @Service
 public class EmpService {
@@ -54,9 +54,9 @@ public class EmpService {
         return repository.HikeEmpSalBy15(per);
     }
     //---------------------------------------------------------
-    public void deleteDataById(int id)
+    public void deleteDataByName(String name)
     {
-        repository.deleteDataById(id);
+        repository.deleteDataByName(name);
     }
     //----------------------------------------------------------
 }

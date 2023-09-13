@@ -66,9 +66,9 @@ public class StudService {
     }
     //----------------------------------------------------------------------------
 
-    public void deleteDataById(int id)
+    public void deleteDataByName(String name)
     {
-        repository.deleteDataById(id);
+        repository.deleteDataByName(name);
     }
     //--------------------------------------
 }

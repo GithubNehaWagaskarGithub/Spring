@@ -73,10 +73,10 @@ public class StudController {
         return service.updatePercentagesByAdding10MarksExtra(per, extraMarks);
     }
     //-------------------------------------------------------------------------------------------------------------
-    @DeleteMapping("/deleteDataById/{id}")
-    public void deleteDataById(@PathVariable(value = "id") int id)
+    @DeleteMapping("/deleteDataByName/{name}")
+    public void deleteDataByName(@PathVariable(value = "name") String name)
     {
-        service.deleteDataById(id);
+        service.deleteDataByName(name);
     }
     //------------------------------------------------------------------
 }

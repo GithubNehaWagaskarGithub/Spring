@@ -50,7 +50,9 @@ public interface StudRepository extends JpaRepository<Student,Integer> {
     public int updatePercentagesByAdding10MarksExtra(@Param("per") double per,@Param("extraMarks") double extraMarks);
     //-----------------------------------------------------------------------------------------------------------------
 
-    @Query("from Student s where s.sId=:id")
-    public void deleteDataById(@Param("id") int id);
+    @Query("delete from Student s where s.sName=:name")
+    @Modifying
+    @Transactional
+    public void deleteDataByName(@Param("name") String name);
     //--------------------------------------------------------------
 }
