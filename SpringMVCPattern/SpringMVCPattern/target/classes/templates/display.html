@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container" align="center">
+    <h1>Display Product</h1>
+    <table border="1">
+        <tr>
+            <th>Product Id</th>
+            <th>Product Name</th>
+            <th>Product Price</th>
+            <th>Product Units</th>
+            <th>Product Revenue</th>
+            <th>Product Profit</th>
+            <th>Update Product</th>
+            <th>Delete Product</th>
+        </tr>
+        <tr th:each="product:${productList}" th:style="(${product.reVenue}-(${product.pPrice}*${product.pUnit}))>=0 ? 'background:green':'background:red'">
+            <td th:text="${product.pId}"></td>
+            <td th:text="${product.pName}"></td>
+            <td th:text="${product.pPrice}"></td>
+            <td th:text="${product.pUnit}"></td>
+            <td th:text="${product.reVenue}"></td>
+            <td th:text="${product.reVenue}-(${product.pPrice}*${product.pUnit})"></td>
+            <td>
+                <a th:href="@{/updateProduct/{id}(id=${product.pId})}">Edit</a>
+            </td>
+            <td>
+                <a th:href="@{/deleteProduct/{id}(id=${product.pId})}">Delete</a>
+            </td>
+        </tr>
+    </table>
+    <br><br>
+
+    <form method="get" th:action="@{/addProduct}">
+        <input type="submit" value="Add Product">
+    </form>
+
+</div>
+</body>
+</html>

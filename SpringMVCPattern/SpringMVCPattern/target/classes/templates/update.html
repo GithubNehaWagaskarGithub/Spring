@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <div class="container" align="center">
+    <form th:object="${tempObject}" method="get" th:action="@{/updateTempObject}">
+      <label>Enter Product Id </label>
+      <input type="text" th:field="*{pId}" readonly>
+      <br><br>
+      <label>Enter Product Name </label>
+      <input type="text" th:field="*{pName}">
+      <br><br>
+      <label>Enter Product Price </label>
+      <input type="text" th:field="*{pPrice}">
+      <br><br>
+      <label>Enter Product Units </label>
+      <input type="text" th:field="*{pUnit}">
+      <br><br>
+      <label>Enter Product Revenue </label>
+      <input type="text" th:field="*{reVenue}">
+      <br><br>
+      <input type="submit" value="Update Product">
+    </form>
+  </div>
+</body>
+</html>
