@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<meta charset="ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+
+<title>Note Interface</title>
+</head>
+<body>
+
+<div class="container" align="center">
+    <h1>Notes</h1>
+    <a th:href="@{/newNote}" class="btn btn-primary btn-sm mb-3">ADD Note</a>
+
+    <table border="1" >
+        <thead>
+        <tr>
+            <th>Note Id</th>
+            <th>Note Title</th>
+            <th>NoteContent</th>
+            <th>Date</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="note:${NoteList}">
+            <td th:text=${note.noteId}></td>
+            <td th:text=${note.noteTitle}></td>
+            <td th:text=${note.noteContent}></td>
+            <td th:text=${note.date}></td>
+            <td><a th:href="@{/updateNote/{id}(id=${note.noteId})}" class="btn btn-primary">UPDATE</a>
+                <a th:href="@{/deleteNote/{id}(id=${note.noteId})}" class="btn btn-danger">DELETE</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
