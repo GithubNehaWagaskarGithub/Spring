@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+</head>
+<body>
+<div class="container" align=center>
+<h1>Book Publication Interface</h1>
+<br><br>
+<a href="@{/newObject}" class="btn btn-primary">Add Book</a>
+<br><br>
+<table border="1">
+<tr>
+<th>Book Id</th>
+<th>Book Name</th>
+<th>Book Publisher Name</th>
+<th>Book Description</th>
+<th>Book Price</th>
+<th>Book Publishing Date</th>
+<th>Update Book</th>
+<th>Delete Book</th>
+
+</tr>
+<tr th:each="book:${bookList}">
+<td th:text=${book.bookId}></td>
+<td th:text=${book.bookName}></td>
+<td th:text=${book.bookPublisherName}></td>
+<td th:text=${book.bookDescription}></td>
+<td th:text=${book.bookPrice}></td>
+<td th:text=${book.bookPublishingDate}></td>
+<td><a th:href="@{/updateData/{id}(id=${book.bookId})}" class="btn btn-primary">Update</a></td>
+<td><a th:href="@{/deleteData/{id}(id=${book.bookId})}" class="btn btn-danger">Delete</a></td>
+</tr>
+</table>
+</div>
+</body>
+</html>
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html> -->

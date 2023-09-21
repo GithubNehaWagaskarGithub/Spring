@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+<div class="container" align="center">
+<hr>
+<h1>Update Book</h1>
+<br><br>
+<form action="@{/insertData}" th:action="@{/insertData}" th:object="${book}" method="post">
+<input type="hidden" th:field="*{bookId}" readonly="readonly" class="from-control mb-4 col-4">
+<br><input type="text" placeholder="Replace Book Name" th:field="*{bookName}" class="from-control mb-4 col-4">
+<br><input type="text" placeholder="Replace Book Book Publisher Name" th:field="*{bookPublisherName}" class="from-control mb-4 col-4">
+<br><input type="text" placeholder="Replace Book Description" th:field="*{bookDescription}" class="from-control mb-4 col-4">
+<br><input type="text" placeholder="Replace Book Price" th:field="*{bookPrice}" class="from-control mb-4 col-4">
+<br><input type="text" placeholder="Replace Book Book Publishing Date" th:field="*{bookPublishingDate}" class="from-control mb-4 col-4">
+<br><button type="submit" class="btn btn-info col-2" >Update Book</button>
+</form>
+<hr>
+<a th:href="@{/}"></a>
+</div>
+</body>
+</html>
