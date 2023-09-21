@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>USER INFORMATION</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+</head>
+<body>
+<div align="center">
+  <h1>USER INFORMATION</h1>
+</div>
+<br>
+<div align="center">
+  <form method="post" th:action="@{/addUserInfo}" th:object="${tempUser}">
+    <input type="number" class="form-control" placeholder="Enter user id" th:field="*{uId}"><br><br>
+    <input type="text" class="form-control" placeholder="Enter user name" th:field="*{uName}"><br><br>
+    <input type="email" class="form-control" placeholder="Enter user email-id" th:field="*{uEmailId}"><br><br>
+    <input type="tel" class="form-control" placeholder="Enter user contact" th:field="*{uContNo}"><br><br>
+    <input type="submit" class="btn btn-primary" value="ADD USER">
+  </form>
+</div>
+</body>
+</html>
