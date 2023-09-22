@@ -20,14 +20,13 @@ public class NoteService implements NoteServices {
 
         return repository.findAll();
     }
-
+    //----------------------------------------
     @Override
     public void saveNote(Note n1) {
 
         this.repository.save(n1);
-
     }
-
+    //---------------------------------------
     @Override
     public Note getNoteById(int id) {
         Optional<Note> optional = repository.findById(id);
@@ -39,10 +38,11 @@ public class NoteService implements NoteServices {
         }
         return note;
     }
-
+    //-------------------------------------------------------------------------
     @Override
-    public void deleteNote(int id) {
-
+    public void deleteNote(int id)
+    {
         this.repository.deleteById(id);
     }
+    //---------------------------------------
 }

@@ -31,7 +31,7 @@ public class Note {
     private String noteContent;
 
     @UpdateTimestamp
-    @Column(name = "datetime")
+    @Column(name = "datetime",nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime date= LocalDateTime.now();

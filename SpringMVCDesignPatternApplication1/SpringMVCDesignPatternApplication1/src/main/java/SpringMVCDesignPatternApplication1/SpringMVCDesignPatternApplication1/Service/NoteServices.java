@@ -6,7 +6,11 @@ import java.util.List;
 
 public interface NoteServices {
     public List<Note> getAllNotes();
+    //---------------------------------------
     public void saveNote(Note n1);
+    //---------------------------------------
     public Note getNoteById(int id);
+    //---------------------------------------
     public void deleteNote(int id);
+    //---------------------------------------
 }

@@ -11,8 +11,13 @@
 
 <div class="container" align="center">
     <h1>Notes</h1>
-    <a th:href="@{/newNote}" class="btn btn-primary btn-sm mb-3">ADD Note</a>
-
+    <a th:href="@{/newNote}" class="btn btn-primary btn-sm mb-3">ADD NOTE</a>
+    <!--<table>
+        <tr th:each="note:${NoteList}">
+            <th><a th:href="@{/updateNote/{id}(id=${note.noteId})}" class="btn btn-primary">UPDATE</a></th>
+            <th> <a th:href="@{/deleteNote/{id}(id=${note.noteId})}" class="btn btn-danger">DELETE</a></th>
+        </tr>
+    </table>-->
     <table border="1" >
         <thead>
         <tr>

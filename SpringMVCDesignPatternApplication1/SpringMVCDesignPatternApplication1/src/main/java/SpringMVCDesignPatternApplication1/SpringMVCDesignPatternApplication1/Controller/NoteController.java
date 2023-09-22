@@ -21,7 +21,7 @@ public class NoteController {
         model.addAttribute("NoteList", service.getAllNotes());
         return "index";
     }
-
+    //-----------------------------------------------------------------------------
     @GetMapping("/newNote")
     public String newNote(Model model) {
         //create object of model
@@ -29,14 +29,14 @@ public class NoteController {
         model.addAttribute("note",note);
         return "save";
     }
-
+    // //----------------------------------------------------
     @PostMapping("/saveNote")
     public String saveNote(@ModelAttribute("note") Note note) {
         //Save employee to database
         service.saveNote(note);
         return "redirect:/";
     }
-
+    //--------------------------------------------------------------
     @GetMapping("/updateNote/{id}")
     public String updateNote(@PathVariable(value="id") int id, Model model) {
         //get employee from service
@@ -44,10 +44,11 @@ public class NoteController {
         model.addAttribute(note);
         return "update";
     }
-
+    //-------------------------------------------------------------------------------
     @GetMapping("/deleteNote/{id}")
     public String deleteNote(@PathVariable(value="id") int id,Model model) {
         this.service.deleteNote(id);
         return "redirect:/";
     }
+    //---------------------------------------------------------------------------------
 }

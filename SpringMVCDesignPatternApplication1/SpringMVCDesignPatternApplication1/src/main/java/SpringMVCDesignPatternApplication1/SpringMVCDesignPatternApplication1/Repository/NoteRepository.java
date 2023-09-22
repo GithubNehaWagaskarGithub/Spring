@@ -1,8 +1,8 @@
 package SpringMVCDesignPatternApplication1.SpringMVCDesignPatternApplication1.Repository;
 
 import SpringMVCDesignPatternApplication1.SpringMVCDesignPatternApplication1.Model.Note;
-import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
