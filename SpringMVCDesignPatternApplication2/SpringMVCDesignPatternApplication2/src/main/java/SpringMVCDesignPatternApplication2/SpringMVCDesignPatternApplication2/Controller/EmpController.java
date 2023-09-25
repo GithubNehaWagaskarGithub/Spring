@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.List;
+
 @Controller
 public class EmpController {
     @Autowired
@@ -44,7 +46,7 @@ public class EmpController {
     }
     //------------------------------------------------------------------------------
     @GetMapping("/updateEmployee/{id}")
-    public String updateEmployee(@PathVariable(value = "id") int id, Model model)
+    public String updateEmployee(@PathVariable("id") int id, Model model)
     {
         Employee emp=services.updateEmployee(id);
         model.addAttribute("emp",emp);
@@ -52,10 +54,42 @@ public class EmpController {
     }
     //---------------------------------------------------------------------------
     @GetMapping("/deleteEmployee/{id}")
-    public String deleteEmployee(@PathVariable("id") int id,Model model)
+    public String deleteEmployee(@PathVariable("id") int id)
     {
         this.services.deleteEmployee(id);
-        return "redirect:displayEmployees";
+        return "redirect:/displayEmployees";
     }
     //----------------------------------------------------------------------------
+
+    @GetMapping("/updateTempEmployee/{id}")
+    public String updateTempEmployee(@PathVariable int id, Model model)
+    {
+        Employee emp=null;
+        List<Employee> list=services.displayData();
+        for(Employee temp:list)
+        {
+            if(temp.getEId()==id)
+            {
+                emp=temp;
+                break;
+            }
+        }
+       model.addAttribute("tempEmp",emp);
+        return "update";
+    }
+    //---------------------------------------------------------
+    @GetMapping("/updateEmployee")//
+    public String updateEmployee(Employee employee)
+    {
+        services.saveEmployee(employee);
+        return "redirect:/displayEmployees";
+    }
+    //------------------------------------------------------
+    @GetMapping("/updateEmployee/{id}")
+    public String deleteById(@PathVariable("id") int id)
+    {
+        services.deleteEmployee(id);
+        return "redirect:/displayEmployee";
+    }
+    //-------------------------------------------------------
 }

@@ -42,7 +42,8 @@ public class EmpServices implements EmpService{
     //------------------------------------------------------------------------------
 
     @Override
-    public void deleteEmployee(int id) {
+    public void deleteEmployee(int id)
+    {
         this.repository.deleteById(id);
     }
     //-------------------------------------------------------------------

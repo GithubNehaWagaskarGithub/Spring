@@ -9,7 +9,7 @@
 <body>
 <div class="container" align="center">
     <h1>Save Employee<h1>
-    <form action="@{/saveEmployee}" th:action="@{/saveEmployee}" method="post" th:object="${emps}">
+    <form action="@{/saveEmployee}" th:action="@{/saveEmployee}" method="post" th:object="${emp}">
         <br><br><input type="text" th:field="*{eName}" placeholder="Enter Employee Name" class="from-control mb-4 col-3">
         <br><input type="text" th:field="*{eDesignation}" placeholder="Enter Employee Designation" class="from-control mb-4 col-3">
         <br><input type="number" th:field="*{eSal}" placeholder="Enter Employee Id" class="from-control mb-4 col-3">
