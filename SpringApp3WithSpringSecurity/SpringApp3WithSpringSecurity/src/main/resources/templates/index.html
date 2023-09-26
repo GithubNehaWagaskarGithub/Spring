@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+
+    <title>Title</title>
+</head>
+<body>
+<div class="container" align="center">
+  <h1>Book Interface</h1>
+  <a>add Book</a>
+</div>
+<div class="card border-success mb-3" style="max-width: 18rem;" class="container" align="center" th:each="book:${bookList}">
+    <div class="card-header bg-transparent border-success">
+        <img th:src="@{/Neha.jpg}" class="card-img-top" alt="...">
+        <h3 class="card-title">Book Id :<span th:text=${book.bookId}></span></h3>
+    </div>
+    <div class="card-body text-success">
+        <h4 class="card-title">Book Name:<span th:text=${book.bookName}></span></h4>
+        <h4 class="card-title">Book Description:<span th:text=${book.bookDescription}></span></h4>
+        <h4 class="card-title">Book Publisher Name :<span th:text=${book.bookPublisherName}></span></h4>
+        <h4 class="card-title">Book Price :<span th:text=${book.bookPrice}></span></h4>
+        <h4 class="card-title">Book Publishing Date :<span th:text=${book.bookPublishingDate}></span></h4>
+    </div>
+    <div class="card-footer">
+        <a><button class="btn btn-warning">Update</button></a>
+        <a><button class="btn btn-danger">Delete</button></a>
+    </div>
+</div>
+</body>
+</html>
