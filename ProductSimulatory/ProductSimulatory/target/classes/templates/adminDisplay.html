@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Display Page</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+</head>
+<body>
+<div class="container" align="center">
+  <h1>Product Simulatory</h1>
+  <br><br>
+  <form th:action="@{/logout}" method="post">
+    <a th:href="@{/newProduct}" class="btn btn-primary btn-sm mb-3">ADD Product</a>
+    <input type="submit" class="btn btn-primary btn-sm mb-3" value="LOGOUT">
+  </form>
+  <br>
+  <table border="1">
+    <tr>
+      <th>Product Id</th>
+      <th>Product Name</th>
+      <th>Product Price</th>
+      <th>Product QTY</th>
+      <th>Operation</th>
+    </tr>
+    <tr th:each="temp:${displayAdminDataList}">
+      <td th:text="${temp.pId}"></td>
+      <td th:text="${temp.pName}"></td>
+      <td th:text="${temp.pPrice}"></td>
+      <td th:text="${temp.pQty}"></td>
+      <td>
+        <a th:href="@{/updateProduct/{id}(id=${temp.pId})}" class="btn btn-warning">Update</a>
+        <a th:href="@{/deleteProduct/{id}(id=${temp.pId})}" class="btn btn-danger">Delete</a>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

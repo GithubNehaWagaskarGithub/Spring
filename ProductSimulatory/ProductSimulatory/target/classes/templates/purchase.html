@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Purchase</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+</head>
+<body>
+<div class="container" align="center">
+    <h1>Purchase Product</h1>
+    <br><br>
+    <hr>
+    <form th:object="${tempPro}" th:action="@{/purchaseProduct}" action="@{/purchaseProduct}">
+        <input type="text" th:field="*{pId}" class="from-control mb-4 col-4" readonly >
+        <br><br><input type="text" th:field="*{pName}" class="from-control mb-4 col-3" readonly>
+        <br><br><input type="text" th:field="*{pPrice}" class="from-control mb-4 col-3" readonly>
+        <br><br><input type="text" th:field="*{pQty}" class="from-control mb-4 col-3" readonly>
+        <br><br><input type="text" th:field="*{userQty}" placeholder="Enter Product Qty do you want to Purchase" class="from-control mb-4 col-3">
+        <br><br><input type="submit" value="Purchase" class="btn btn-primary">
+    </form>
+    </hr>
+</div>
+</body>
+</html>
