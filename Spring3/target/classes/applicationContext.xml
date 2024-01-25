@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <bean id="pe" class="IOCContainer.PetrolEngine"></bean>
+    <bean id="de" class="IOCContainer.DesielEngine"></bean>
+
+   <!-- Depenency Injection-->
+   <!-- <bean id=""></bean>-->
+
+    <!--IOCAnnotation-->
+    <context:component-scan base-package="IOCAnnotation"></context:component-scan>
+
+    <!--BeanLifeCycle-->
+    <context:component-scan base-package="BeanLifeCycle"></context:component-scan>
+
+    <!--Dependency Injection-->
+
+    
+    <bean id="gp" class="DepedencyInjection.GlossaryProduct"></bean>
+    <bean id="ep" class="DepedencyInjection.ElectronicsProduct"></bean>
+
+    <bean id="gs" class="DepedencyInjection.GlossaryShop"><property name="glossaryProduct" ref="gp"></property></bean>
+    <bean id="es" class="DepedencyInjection.ElectronicsShop"><property name="electronicsProduct" ref="ep"></property></bean>
+
+   <!-- Setter Injection--><!--by using setter Injection we can not perform a Upcasting-->
+
+    <bean id="lb" class="SetterInjection.LithiumBattery"></bean>
+    <bean id="nb" class="SetterInjection.NormalBattery"></bean>
+
+    <bean id="ap" class="SetterInjection.Apple"><property name="lithiumBattery" ref="lb"></property> </bean>
+    <bean id="sp" class="SetterInjection.Samsung"><property name="normalBattery" ref="nb"></property></bean>
+
+   <!-- Constructor Injection-->
+    <bean id="gloPro" class="ConstructorInjection.GloProduct"></bean>
+    <bean id="elePro" class="ConstructorInjection.EleProduct"></bean>
+
+    <bean id="gloShop" class="ConstructorInjection.GloShop"><constructor-arg ref="gloPro"></constructor-arg></bean>
+    <bean id="eleShop" class="ConstructorInjection.EleShop"><constructor-arg ref="elePro"></constructor-arg></bean>
+
+    <!--DependencyInjection-->
+
+    <context:component-scan base-package="DependencyInjection"></context:component-scan>
+    <context:annotation-config></context:annotation-config>
+
+
+   <!-- Program1-->
+
+    <context:component-scan base-package="Program1"></context:component-scan>
+    <context:annotation-config></context:annotation-config>
+</beans>
